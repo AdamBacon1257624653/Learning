@@ -26,13 +26,10 @@
 
 </head>
 <body>
-	<h1>Insert User</h1>
-	<sf:form method="post" commandName="user">
-    	UserName:<sf:input path="userName" /> 	<sf:errors path="userName"/><br />
-    	Id:<sf:input path="id" /><br />
-    	Age:<sf:input path="age" /> 	<sf:errors path="age"/><br />
-    	Email:<sf:input path="email" /> 	<sf:errors path="email"/><br />
-		<input type="submit" value="Add" />
-	</sf:form>
+	<h1>Show User</h1>
+    	${user.userName }------
+    	${user.id }-----
+    	${user.age }-----
+    	${user.email }
 </body>
 </html>

@@ -1,5 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -23,15 +24,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
   </head>
   <body>
-    <h1>This is User JSP page.</h1>
-    <a href="Users/add">Add</a><br/>
-    <c:forEach items="${users }" var="user">
-    	${user.userName }
-    	----------<a href="Users/${user.id }">${user.id }</a>
-    	-----------------${user.age }
-    	-----------${user.email }
-    	-----------<a href="Users/${user.id }/update">Update</a>
-    	-----------<a href="Users/${user.id }/delete">Delete</a><br/>
-    </c:forEach>
+    <h1>User Update Page.</h1>
+    <sf:form method="post" commandName="user">
+    	UserName:<sf:input path="userName" /> <sf:errors path="userName"/><br/>
+    	Age:<sf:input path="age" /> <sf:errors path="age"/><br/>
+    	Email:<sf:input path="email" /> <sf:errors path="email"/><br/>
+		<input type="submit" value="Update" />
+	</sf:form>
   </body>
 </html>
